@@ -71,10 +71,21 @@ def rpsls(player_choice):
     # compute difference of comp_number and player_number modulo five
     difference = comp_number - player_number
     print difference
+    remainder = difference % 5
+    print remainder 
     
     # use if/elif/else to determine winner, print winner message
-    if difference == 0:
+    if remainder == 1:
+        print "Computer wins!"
+    elif remainder == 2:
+        print "Computer wins!"
+    elif remainder == 3:
+        print "Player wins!"
+    elif remainder == 4:
+        print "Computer wins!"
+    else:
         print "We have a tie"
+    
     
 # test your code - THESE CALLS MUST BE PRESENT IN YOUR SUBMITTED CODE
 rpsls("rock")
