@@ -35,7 +35,7 @@ def name_to_number(name):
 
 
 def number_to_name(number):
-    # convert number to a name using
+    # convert number to a name
     if number == 0:
         name = "rock"
     elif number == 1:
