@@ -8,17 +8,17 @@ import math
 
 range = 100
 allowed_guess = 7
-number_guesses = 0
+
 
 
 # helper function to start and restart the game
 def new_game(range):
     # initialize global variables used in your code here
-    global secret_number, allowed_guess
+    global secret_number, allowed_guess, number_guesses
+    number_guesses = 0
     secret_number = random.randrange(0, range)   
     print "New Game. Range is from 0 to", range
     print "Number of remaining guesses is:", allowed_guess
-    print
     print
 
 
@@ -40,20 +40,29 @@ def range1000():
     new_game(range)
     
 def input_guess(guess):
-    # main game logic goes here	
+    # main game logic goes here 
     global allowed_guess, number_guesses 
+    correct = False
     inputed_guess = int(guess)
     print "Guess was", inputed_guess
-    if inputed_guess < secret_number:
-        print "Lower"
-    elif inputed_guess > secret_number:
-        print "Higher"
-    else:
-        print "Correct"
     
-    if number_guesses < allowed_guess - 1:
+    # Test if inputed guess is equal to secret number
+    if inputed_guess < secret_number:
+        print "Lower!"
+    elif inputed_guess > secret_number:
+        print "Higher!"
+    else:
+        correct = True
+        print "Correct!"
+        print
+    
+    # Controls the number of guesses left
+    if (number_guesses < allowed_guess - 1) and not correct:
         number_guesses = number_guesses + 1
         print "Number of remaining guesses is:", allowed_guess - number_guesses
+    
+    elif correct:
+        new_game(range)
     else:
         print "Game over. No more guesses"
         print
@@ -76,4 +85,3 @@ new_game(range)
 
 
 # always remember to check your completed program against the grading rubric
-
