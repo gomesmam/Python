@@ -4,12 +4,19 @@
 
 {% block content %}
 
-            <h1>Contact Us</h1>
+<h1>{{ title }}</h1>
 
-<form metho="POST" action=""> {% csrf_token %}
+{% if confirm_message %}
+<p>{{ confirm_message}}</p>
+{% endif %}
+
+{% if form %}
+
+<form method="POST" action=""> {% csrf_token %}
 {{form.as_p}}
 <input type="submit" value="Send" class="btn btn-default" />
 </form>
 
+{% endif %}
 
 {% endblock %}
