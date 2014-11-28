@@ -32,10 +32,9 @@ def home(request):
         # send_mail(sbj, msg, to_us, to_us, fail_silently=False)
         send_mail(sbj, msg, 'teste@3es.in', ['mail@miguelgomes.eu'], fail_silently=False)
         title = "Thank You"
-        confirm_message = " Thanks for message "
+        confirm_message = " Thanks for the message "
+        form = None
 
-    else:
-        print "FORM INVALID"
 
     context = {
         'title': title,
